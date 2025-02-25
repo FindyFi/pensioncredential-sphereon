@@ -1,0 +1,8 @@
+{
+    "issuer_base": "https://agent.findynet.demo.sphereon.com/oid4vci",
+    "verifier_base": "https://agent.findynet.demo.sphereon.com",
+    "definitionId": "PensionSdJwt",
+    "server_host": "localhost",
+    "issuer_port": 2080,
+    "verifier_port": 2081
+}
