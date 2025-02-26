@@ -20,9 +20,10 @@ async function getOffer(path) {
     "qrCodeOpts": {
       "size": 256
     },
-    "credentialDataSupplierInput": credential.credentialSubject
+    // Deep structures not supported, flatten the credentialSubject into simple name-value pairs
+    "credentialDataSupplierInput": Object.assign(credential.credentialSubject.Person, credential.credentialSubject.Pension)
   }
-  // console.log(JSON.stringify(credentialParams, null, 2))
+  console.log(JSON.stringify(credentialParams, null, 2))
   const body = JSON.stringify(credentialParams)
   const resp = await fetch(createUrl, { method: 'POST', headers, body })
   if (!resp.ok) {
