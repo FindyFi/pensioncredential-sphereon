@@ -180,12 +180,12 @@ async function showRequest(res) {
    lcontainer.appendChild(switcher)
 
    const c = document.querySelector('#content')
-   const params = new URLSearchParams({
+   const query = new URLSearchParams({
      correlationId: '${correlationId}'
      definitionId: '${definitionId}',
      includeVerifiedData: 'cs-flat'
    })
-   const uri = '/status?' + params.toString()
+   const uri = '/status?' + query.toString()
    let timer
    async function checkStatus() {
     const resp = await fetch(uri)
