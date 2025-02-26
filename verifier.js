@@ -29,7 +29,7 @@ async function showRequest(res) {
   console.log(request)
   process.exit
   const dataURL = await QRCode.toDataURL(request.authRequestURI)
-  const statusURL = request.authStatusURI
+  // const statusURL = request.authStatusURI
   const correlationId = request.correlationId
   const definitionId = request.definitionId
   res.setHeader("Content-Type", "text/html")
@@ -191,10 +191,10 @@ async function showRequest(res) {
     const resp = await fetch(uri)
     if (resp.status == 200) {
      const status = await resp.json()
-     if (status.status == 'created') {
+     if (status.status == 'verified') {
       clearInterval(timer)
       console.log(status)
-      const attributes = status.verifiedData
+      const attributes = status.payload?.verifiedData || {}
       const html = \`<p><span lang="fi">Todisteen tarkistuksen tila</span><span lang="en">Proof request state</span>: <strong>\${status.status}</strong></p>
       <table>
       <tr><th><span lang="fi">Hetu</span><span lang="en">SSN</span></th><td>\${attributes['Person/personalAdministrativeNumber']}</td></tr>
