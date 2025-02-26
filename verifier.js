@@ -191,12 +191,9 @@ async function showRequest(res) {
     const resp = await fetch(uri)
     if (resp.status == 200) {
      const status = await resp.json()
-     if (status.status == 'received') {
-      console.log(status)
-     }
      if (status.status == 'verified') {
       clearInterval(timer)
-      console.log(status)
+      console.log(status, null, 2)
       const attributes = status.payload?.verifiedData || {}
       if (attributes.Person) attributes.Person = {}
       if (attributes.Pension) attributes.Pension = {}
