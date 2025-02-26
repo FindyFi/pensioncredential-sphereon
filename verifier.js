@@ -183,7 +183,7 @@ async function showRequest(res) {
    const query = new URLSearchParams({
      correlationId: '${correlationId}',
      definitionId: '${definitionId}',
-     includeVerifiedData: 'cs-flat'
+     includeVerifiedData: 'vp'
    })
    const uri = '/status?' + query.toString()
    let timer
