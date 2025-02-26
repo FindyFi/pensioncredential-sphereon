@@ -192,9 +192,14 @@ async function showRequest(res) {
     if (resp.status == 200) {
      const status = await resp.json()
      if (status.status == 'verified') {
+      console.log(status)
+     }
+     if (status.status == 'verified') {
       clearInterval(timer)
       console.log(status)
       const attributes = status.payload?.verifiedData || {}
+      if (attributes.Person) attributes.Person = {}
+      if (attributes.Pension) attributes.Pension = {}
       const html = \`<p><span lang="fi">Todisteen tarkistuksen tila</span><span lang="en">Proof request state</span>: <strong>\${status.status}</strong></p>
       <table>
       <tr><th><span lang="fi">Hetu</span><span lang="en">SSN</span></th><td>\${attributes.Person.personal_administrative_number}</td></tr>
