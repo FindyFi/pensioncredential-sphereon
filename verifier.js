@@ -195,8 +195,8 @@ async function showRequest(res) {
       clearInterval(timer)
       console.log(JSON.stringify(status, null, 2))
       const attributes = status.payload?.verifiedData || {}
-      if (attributes.Person) attributes.Person = {}
-      if (attributes.Pension) attributes.Pension = {}
+      if (!attributes.Person) attributes.Person = {}
+      if (!attributes.Pension) attributes.Pension = {}
       const html = \`<p><span lang="fi">Todisteen tarkistuksen tila</span><span lang="en">Proof request state</span>: <strong>\${status.status}</strong></p>
       <table>
       <tr><th><span lang="fi">Hetu</span><span lang="en">SSN</span></th><td>\${attributes.Person.personal_administrative_number}</td></tr>
