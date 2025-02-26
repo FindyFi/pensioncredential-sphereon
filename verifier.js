@@ -193,7 +193,7 @@ async function showRequest(res) {
      const status = await resp.json()
      if (status.status == 'verified') {
       clearInterval(timer)
-      console.log(status, null, 2)
+      console.log(JSON.stringify(status, null, 2))
       const attributes = status.payload?.verifiedData || {}
       if (attributes.Person) attributes.Person = {}
       if (attributes.Pension) attributes.Pension = {}
