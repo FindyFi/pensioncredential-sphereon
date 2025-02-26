@@ -191,7 +191,7 @@ async function showRequest(res) {
     const resp = await fetch(uri)
     if (resp.status == 200) {
      const status = await resp.json()
-     if (status.status == 'verified') {
+     if (status.status == 'received') {
       console.log(status)
      }
      if (status.status == 'verified') {
