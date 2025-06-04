@@ -280,7 +280,7 @@ const sendOffer = async function (req, res) {
     img.src = dataUrl
     a.href = url
     a.appendChild(img)
-    o.textContent = ''
+    o.innerHTML = ''
     o.appendChild(a)
    }
    f.onsubmit = async function(e) {
