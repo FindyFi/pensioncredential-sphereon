@@ -271,6 +271,12 @@ const sendOffer = async function (req, res) {
     user.textContent = this[this.selectedIndex].textContent
 
     const resp = await fetch(file)
+    if (!resp.ok) {
+     console.log(resp.status, await resp.text())
+     o.innerHTML = \`<p lang="en" class="warning">Failed to create credential offer for <tt>\${file}</tt></p>\` +
+                   \`<p lang="fi" class="warning">Eläketodisteen luonti epäonnistui tiedostolle <tt>\${file}</tt></p>\`
+     return
+    }
     const offer = await resp.json()
     const url = offer.uri
     const dataUrl = offer.qrCodeDataUri
